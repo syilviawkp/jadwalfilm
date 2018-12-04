@@ -25,7 +25,7 @@
         app:srcCompat="@drawable/movie" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnMasuk"
         android:layout_width="168dp"
         android:layout_height="34dp"
         android:layout_alignParentBottom="true"
@@ -52,7 +52,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView3"
+        android:layout_above="@+id/txtDaftar"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="77dp"
         android:fontFamily="monospace"
@@ -61,7 +61,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtDaftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
