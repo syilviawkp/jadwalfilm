@@ -51,7 +51,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="109dp"
-        android:text="Login"
+        android:text="Sign UP"
         android:textColor="@android:color/black" />
 
     <ImageView
