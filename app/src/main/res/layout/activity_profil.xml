@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/awal1"
+    tools:context=".Profil">
+
+
+    <TextView
+        android:id="@+id/txtNamaUser"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/txtEmailUser"
+        android:layout_marginTop="38dp"
+        android:text="Nama user"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtEmailUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="91dp"
+        android:text="Email user"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/imgHomeUser"
+            android:layout_width="56dp"
+            android:layout_height="39dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            app:srcCompat="@drawable/home" />
+
+        <ImageView
+            android:id="@+id/imgProfilUser"
+            android:layout_width="58dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/profil" />
+
+        <ImageView
+            android:id="@+id/imgBackUser"
+            android:layout_width="74dp"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/txtNamaUser"
+        android:layout_marginStart="23dp"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/txtEmailUser"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="-16dp"
+        app:srcCompat="@android:drawable/ic_lock_power_off" />
+
+
+</RelativeLayout>
