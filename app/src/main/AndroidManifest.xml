@@ -19,8 +19,10 @@
         <activity android:name=".Login" />
         <activity android:name=".Daftar" />
         <activity android:name=".Home" />
-        <activity android:name=".Detail" />
-        <activity android:name=".Profil"></activity>
+        <activity android:name=".DetailMovimax" />
+        <activity android:name=".Profil" />
+        <activity android:name=".DetailCinemaxx" />
+        <activity android:name=".DetailCinemaXXI"></activity>
     </application>
 
 </manifest>

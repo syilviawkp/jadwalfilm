@@ -16,7 +16,7 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/txt_jam_tayang"
+            android:id="@+id/txt_jam_tayang3"
             android:layout_width="match_parent"
             android:layout_height="32dp"
             android:layout_alignParentBottom="true"
@@ -25,7 +25,7 @@
             android:text="Jam tayang"/>
 
         <TextView
-            android:id="@+id/txt_film"
+            android:id="@+id/txt_film3"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_alignParentBottom="true"
@@ -34,12 +34,12 @@
             android:text="Nama film"/>
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imgCinemaxxi"
             android:layout_width="wrap_content"
             android:layout_height="92dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            card_view:srcCompat="@drawable/movlogo" />
+            card_view:srcCompat="@drawable/cinemax21" />
 
     </RelativeLayout>
 

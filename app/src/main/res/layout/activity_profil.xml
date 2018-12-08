@@ -71,7 +71,7 @@
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imgLogout"
         android:layout_width="39dp"
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"

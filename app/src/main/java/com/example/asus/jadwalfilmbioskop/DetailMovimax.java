@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class Detail extends AppCompatActivity {
+public class DetailMovimax extends AppCompatActivity {
 
     ImageView imgHome1, imgProfil1, imgBack1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_detail_movimax);
 
         imgHome1 = findViewById(R.id.imgHome1);
         imgProfil1 = findViewById(R.id.imgProfil1);
@@ -22,7 +22,7 @@ public class Detail extends AppCompatActivity {
         imgHome1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent a = new Intent(Detail.this, Home.class);
+                Intent a = new Intent(DetailMovimax.this, Home.class);
                 startActivity(a);
             }
         });
@@ -30,7 +30,7 @@ public class Detail extends AppCompatActivity {
         imgProfil1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent b = new Intent(Detail.this, Profil.class);
+                Intent b = new Intent(DetailMovimax.this, Profil.class);
                 startActivity(b);
             }
         });
@@ -38,7 +38,7 @@ public class Detail extends AppCompatActivity {
         imgBack1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent c = new Intent(Detail.this, Home.class);
+                Intent c = new Intent(DetailMovimax.this, Home.class);
                 startActivity(c);
             }
         });
