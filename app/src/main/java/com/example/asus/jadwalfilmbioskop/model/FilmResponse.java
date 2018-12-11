@@ -7,24 +7,24 @@ import java.util.List;
 public class FilmResponse {
 
     @SerializedName("status")
-    private int status;
+    private String  status;
 
-    @SerializedName("results")
-    private List<Film> results;
+    @SerializedName("result")
+    private List<Film> filmList;
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public List<Film> getResults() {
-        return results;
+    public List<Film> getFilmList() {
+        return filmList;
     }
 
-    public void setResults(List<Film> results) {
-        this.results = results;
+    public void setFilmList(List<Film> filmList) {
+        this.filmList = filmList;
     }
 }

@@ -3,32 +3,17 @@ package com.example.asus.jadwalfilmbioskop.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Film {
+    @SerializedName("id_film") private String id_film;
+    @SerializedName("judul") private String judul;
+    @SerializedName("jam") private String jam;
+    @SerializedName("poster") private String poster;
 
-    @SerializedName("idFilm")
-    private int idFilm;
-
-    @SerializedName("judul")
-    private String judul;
-
-    @SerializedName("jam")
-    private String jam;
-
-    @SerializedName("poster")
-    private String poster;
-
-    public Film(int idFilm, String judul, String jam, String poster) {
-        this.idFilm = idFilm;
-        this.judul = judul;
-        this.jam = jam;
-        this.poster = poster;
+    public String getId_film() {
+        return id_film;
     }
 
-    public int getIdFilm() {
-        return idFilm;
-    }
-
-    public void setIdFilm(int idFilm) {
-        this.idFilm = idFilm;
+    public void setId_film(String id_film) {
+        this.id_film = id_film;
     }
 
     public String getJudul() {

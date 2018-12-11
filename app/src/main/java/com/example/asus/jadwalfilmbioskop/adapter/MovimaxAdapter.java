@@ -1,60 +1,61 @@
 package com.example.asus.jadwalfilmbioskop.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.asus.jadwalfilmbioskop.R;
 import com.example.asus.jadwalfilmbioskop.model.Film;
+import com.example.asus.jadwalfilmbioskop.rest.ApiClient;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MovimaxAdapter extends RecyclerView.Adapter<MovimaxAdapter.ViewHolder> {
-    private List<Film> rvData;
+
+    private List<Film> mFilm;
     private Context mContext;
 
-    public MovimaxAdapter(List<Film> rvData, Context mContext) {
-        this.rvData = rvData;
+    public MovimaxAdapter(List<Film> mFilm, Context mContext) {
+        this.mFilm = mFilm;
         this.mContext = mContext;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    @NonNull
+    @Override
+    public MovimaxAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_detail_movimax, parent, false);
+        MovimaxAdapter.ViewHolder myViewHolder = new MovimaxAdapter.ViewHolder(mView);
 
-        public TextView namaFilm, jamTayang;
-        public ViewHolder(View v) {
-            super(v);
-            namaFilm = (TextView) v.findViewById(R.id.txt_film);
-            jamTayang = (TextView) v.findViewById(R.id.txt_jam_tayang);
-        }
+        return myViewHolder;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // membuat view baru
-        View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_detail_movimax, parent,false);
-        // mengeset ukuran view, margin, padding, dan parameter layout lainnya
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+    public void onBindViewHolder(@NonNull MovimaxAdapter.ViewHolder holder, int position) {
+        holder.judul.setText(mFilm.get(position).getJudul());
+        holder.jam.setText(mFilm.get(position).getJam());
+        Picasso.with(mContext).load(ApiClient.BASE_upload+mFilm.get(position).getPoster()).into(holder.poster);
     }
 
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        // - mengambil elemen dari dataset (ArrayList) pada posisi tertentu
-        // - mengeset isi view dengan elemen dari dataset tersebut
-//        final String name = rvData.get(position);
-//        holder.namaFilm.setText(rvData.get(position));
-//        holder.jamTayang.setText(rvData.get(position));
-        holder.namaFilm.setText(rvData.get(position).getJudul());
-        holder.jamTayang.setText(rvData.get(position).getJam());
-
-    }
     @Override
     public int getItemCount() {
-        // menghitung ukuran dataset / jumlah data yang ditampilkan di RecyclerView
-        return rvData.size();
+        return mFilm.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView judul,jam;
+        ImageView poster;
+        public ViewHolder(View itemView) {
+            super(itemView);
+            judul = itemView.findViewById(R.id.txt_film);
+            jam = itemView.findViewById(R.id.txt_jam_tayang);
+            poster = itemView.findViewById(R.id.poster1);
+        }
     }
 }
