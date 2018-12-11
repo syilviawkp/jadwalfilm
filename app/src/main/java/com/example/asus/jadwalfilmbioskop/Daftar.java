@@ -47,30 +47,55 @@ public class Daftar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 retrofit2.Call<UserResponse> newUser = mApiInterface.postUser(editEmail.getText().toString(), editNama.getText().toString(), editPassword.getText().toString());
-                newUser.enqueue(new Callback<UserResponse>(){
 
-                    @Override
-                    public void onResponse(retrofit2.Call<UserResponse> call, Response<UserResponse> response) {
+                if(editEmail.getText().length()==0 && editPassword.getText().length()==0){
+                    Toast.makeText(getApplicationContext(), "Jangan kosong, harap diisi!!!!!!", Toast.LENGTH_SHORT).show();
+                }else{
+                    newUser.enqueue(new Callback<UserResponse>(){
 
-                        String status = response.body().getStatus();
-                        if(response.body().getStatus().equals("success")){
-                            Toast.makeText(getApplicationContext(),"Daftar Berhasil",Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(getApplicationContext(),Login.class);
-                            startActivity(i);
-                        }else {
-                            Toast.makeText(getApplicationContext(),"Daftar Error",Toast.LENGTH_LONG).show();
+                        @Override
+                        public void onResponse(retrofit2.Call<UserResponse> call, Response<UserResponse> response) {
+
+                            if(response.body().getStatus().equals("sukses")){
+                                Toast.makeText(getApplicationContext(),"Daftar Berhasil",Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(getApplicationContext(),Login.class);
+                                startActivity(i);
+                            }else {
+                                Toast.makeText(getApplicationContext(),"Daftar Error",Toast.LENGTH_LONG).show();
+                            }
+
                         }
 
-                    }
+                        @Override
+                        public void onFailure(retrofit2.Call<UserResponse> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(),"Server Error",Toast.LENGTH_LONG).show();
+                        }
 
-                    @Override
-                    public void onFailure(retrofit2.Call<UserResponse> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),"Server Error",Toast.LENGTH_LONG).show();
-                    }
+                    });
+                }
 
-                });
+//                newUser.enqueue(new Callback<UserResponse>(){
+//
+//                    @Override
+//                    public void onResponse(retrofit2.Call<UserResponse> call, Response<UserResponse> response) {
+//
+//                        if(response.body().getStatus().equals("sukses")){
+//                            Toast.makeText(getApplicationContext(),"Daftar Berhasil",Toast.LENGTH_SHORT).show();
+//                            Intent i = new Intent(getApplicationContext(),Login.class);
+//                            startActivity(i);
+//                        }else {
+//                            Toast.makeText(getApplicationContext(),"Daftar Error",Toast.LENGTH_LONG).show();
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(retrofit2.Call<UserResponse> call, Throwable t) {
+//                        Toast.makeText(getApplicationContext(),"Server Error",Toast.LENGTH_LONG).show();
+//                    }
+//
+//                });
             }
         });
     }

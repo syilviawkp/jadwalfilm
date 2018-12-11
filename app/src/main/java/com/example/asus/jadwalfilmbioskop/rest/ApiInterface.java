@@ -32,7 +32,7 @@ public interface ApiInterface {
 
     //User
     @FormUrlEncoded
-    @POST("User")
+    @POST("Register")
     Call<UserResponse> postUser (
                          @Field("email") String email,
                          @Field("nama") String nama,
