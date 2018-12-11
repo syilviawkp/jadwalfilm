@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.asus.jadwalfilmbioskop.adapter.MovimaxAdapter;
+import com.example.asus.jadwalfilmbioskop.adapter.CinemaxxiAdapter;
 import com.example.asus.jadwalfilmbioskop.model.Film;
 import com.example.asus.jadwalfilmbioskop.model.FilmResponse;
 import com.example.asus.jadwalfilmbioskop.rest.ApiClient;
@@ -67,24 +67,7 @@ public class DetailCinemaXXI extends AppCompatActivity {
         aRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 //        recycler1.setLayoutManager(new LinearLayoutManager(this));
         aApiInterface  = ApiClient.getClient().create(ApiInterface.class);
-        Call<FilmResponse> call = aApiInterface.getTopRatedMovies();
 
-        call.enqueue(new Callback<FilmResponse>() {
-            @Override
-            public void onResponse(Call<FilmResponse> call, Response<FilmResponse> response) {
-                aFilm = response.body().getFilmList();
-
-                Log.e("Hai",response.body().getStatus());
-
-                aAdapter = new MovimaxAdapter(aFilm, getApplicationContext());
-                aRecyclerView.setAdapter(aAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<FilmResponse> call, Throwable t) {
-
-            }
-        });
 
     }
 }

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.asus.jadwalfilmbioskop.adapter.MovimaxAdapter;
 import com.example.asus.jadwalfilmbioskop.model.Film;
+import com.example.asus.jadwalfilmbioskop.model.FilmBioskop;
 import com.example.asus.jadwalfilmbioskop.model.FilmResponse;
 import com.example.asus.jadwalfilmbioskop.rest.ApiClient;
 import com.example.asus.jadwalfilmbioskop.rest.ApiInterface;
@@ -29,18 +30,28 @@ public class DetailMovimax extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private List<Film> mFilm = new ArrayList<>();
+    private List<FilmBioskop> mFilm = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_movimax);
 
-
-
         imgHome1 = findViewById(R.id.imgHome1);
         imgProfil1 = findViewById(R.id.imgProfil1);
         imgBack1 = findViewById(R.id.imgBack1);
+        ImageView logo = findViewById(R.id.imgBioskop);
+
+
+        Intent i = getIntent();
+
+        if(i.getStringExtra("id_bioskop").equals("1")){
+            logo.setImageResource(R.drawable.movlogo);
+        }else if(i.getStringExtra("id_bioskop").equals("2")){
+            logo.setImageResource(R.drawable.movcin);
+        }else if(i.getStringExtra("id_bioskop").equals("3")){
+            logo.setImageResource(R.drawable.cinemax21);
+        }
 
         imgHome1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,16 +81,15 @@ public class DetailMovimax extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 //        recycler1.setLayoutManager(new LinearLayoutManager(this));
         mApiInterface  = ApiClient.getClient().create(ApiInterface.class);
-        Call<FilmResponse> call = mApiInterface.getTopRatedMovies();
+        Call<FilmResponse> call = mApiInterface.getFilmKategoriID(i.getStringExtra("id_bioskop"));
 
         call.enqueue(new Callback<FilmResponse>() {
             @Override
             public void onResponse(Call<FilmResponse> call, Response<FilmResponse> response) {
                 mFilm = response.body().getFilmList();
 
-                Log.e("Hai",response.body().getStatus());
+                mAdapter = new MovimaxAdapter(mFilm,getApplicationContext());
 
-                mAdapter = new MovimaxAdapter(mFilm, getApplicationContext());
                 mRecyclerView.setAdapter(mAdapter);
             }
 
@@ -88,6 +98,7 @@ public class DetailMovimax extends AppCompatActivity {
 
             }
         });
+
 
     }
 }

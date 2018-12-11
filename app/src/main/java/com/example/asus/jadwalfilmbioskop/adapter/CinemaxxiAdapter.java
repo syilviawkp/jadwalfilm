@@ -29,8 +29,8 @@ public class CinemaxxiAdapter extends RecyclerView.Adapter<CinemaxxiAdapter.View
     @NonNull
     @Override
     public CinemaxxiAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_detail_cinemaxxi, parent, false);
-        CinemaxxiAdapter.ViewHolder myViewHolder = new CinemaxxiAdapter.ViewHolder(mView);
+        View aView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_detail_cinemaxxi, parent, false);
+        CinemaxxiAdapter.ViewHolder myViewHolder = new CinemaxxiAdapter.ViewHolder(aView);
 
         return myViewHolder;
     }

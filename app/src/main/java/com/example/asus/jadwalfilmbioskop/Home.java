@@ -24,6 +24,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent a = new Intent(getApplicationContext(), DetailMovimax.class);
+                a.putExtra("id_bioskop","1");
                 startActivity(a);
             }
         });
@@ -31,7 +32,8 @@ public class Home extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent b = new Intent(getApplicationContext(), DetailCinemaXXI.class);
+                Intent b = new Intent(getApplicationContext(), DetailMovimax.class);
+                b.putExtra("id_bioskop","3");
                 startActivity(b);
             }
         });
@@ -39,7 +41,8 @@ public class Home extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent c = new Intent(getApplicationContext(), DetailCinemaxx.class);
+                Intent c = new Intent(getApplicationContext(), DetailMovimax.class);
+                c.putExtra("id_bioskop","2");
                 startActivity(c);
             }
         });

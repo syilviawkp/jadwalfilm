@@ -10,7 +10,7 @@ public class FilmResponse {
     private String  status;
 
     @SerializedName("result")
-    private List<Film> filmList;
+    private List<FilmBioskop> filmList;
 
     public String getStatus() {
         return status;
@@ -20,11 +20,11 @@ public class FilmResponse {
         this.status = status;
     }
 
-    public List<Film> getFilmList() {
+    public List<FilmBioskop> getFilmList() {
         return filmList;
     }
 
-    public void setFilmList(List<Film> filmList) {
+    public void setFilmList(List<FilmBioskop> filmList) {
         this.filmList = filmList;
     }
 }

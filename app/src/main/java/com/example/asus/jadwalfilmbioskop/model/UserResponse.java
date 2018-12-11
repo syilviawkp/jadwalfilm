@@ -7,16 +7,16 @@ import java.util.List;
 public class UserResponse {
 
     @SerializedName("status")
-    private int status;
+    private String status;
 
     @SerializedName("results")
     private List<User> results;
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

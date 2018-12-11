@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.asus.jadwalfilmbioskop.R;
 import com.example.asus.jadwalfilmbioskop.model.Film;
+import com.example.asus.jadwalfilmbioskop.model.FilmBioskop;
 import com.example.asus.jadwalfilmbioskop.rest.ApiClient;
 import com.squareup.picasso.Picasso;
 
@@ -19,10 +20,10 @@ import java.util.List;
 
 public class MovimaxAdapter extends RecyclerView.Adapter<MovimaxAdapter.ViewHolder> {
 
-    private List<Film> mFilm;
+    private List<FilmBioskop> mFilm;
     private Context mContext;
 
-    public MovimaxAdapter(List<Film> mFilm, Context mContext) {
+    public MovimaxAdapter(List<FilmBioskop> mFilm, Context mContext) {
         this.mFilm = mFilm;
         this.mContext = mContext;
     }

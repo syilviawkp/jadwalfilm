@@ -21,35 +21,36 @@
             android:layout_height="32dp"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/txt_film"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="81dp"
             android:text="Jam tayang"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_film"
-            android:layout_width="212dp"
+            android:layout_width="220dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="0dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="47dp"
             android:text="Nama film"
             android:textSize="18sp"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold|italic"
+            android:layout_toRightOf="@id/poster1"/>
 
-        <ImageView
-            android:id="@+id/imgMovimax"
-            android:layout_width="wrap_content"
-            android:layout_height="62dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            card_view:srcCompat="@drawable/movlogo" />
+        <!--<ImageView-->
+            <!--android:id="@+id/imgMovimax"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="62dp"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--card_view:srcCompat="@drawable/movlogo" />-->
 
         <ImageView
             android:id="@+id/poster1"
-            android:layout_width="124dp"
-            android:layout_height="124dp"
+            android:layout_width="110dp"
+            android:layout_height="193dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="18dp"

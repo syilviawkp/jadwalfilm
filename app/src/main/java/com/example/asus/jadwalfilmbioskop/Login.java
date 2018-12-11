@@ -12,8 +12,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asus.jadwalfilmbioskop.model.UserResponse;
+import com.example.asus.jadwalfilmbioskop.rest.ApiClient;
+import com.example.asus.jadwalfilmbioskop.rest.ApiInterface;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
@@ -21,6 +29,7 @@ public class Login extends AppCompatActivity {
     EditText editMail, editPass;
     SessionManagement sessionManagement;
     DataHelper dbHelper;
+    private ApiInterface mApiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +40,14 @@ public class Login extends AppCompatActivity {
         editMail = findViewById(R.id.editMail);
         editPass = findViewById(R.id.editPass);
         btnLogin = findViewById(R.id.btnLogin);
+
+        mApiInterface  = ApiClient.getClient().create(ApiInterface.class);
         
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), Home.class);
+//                startActivity(intent);
 
 //                if (cekValidasi()) {
 //                    if (!isValidEmail(editMail.getText().toString().trim())) {
@@ -46,22 +57,26 @@ public class Login extends AppCompatActivity {
 //                    } else {
 //                        sessionManagement.createLoginSession(editMail.getText().toString(), editPass.getText().toString());
 //
-//                        SQLiteDatabase db = dbHelper.getWritableDatabase();
-//                        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE email = '" +
-//                                editMail.getText().toString() + "' AND password = '" +
-//                                editPass.getText().toString() + "'", null);
-//                        cursor.moveToFirst();
 //
-//                        if (cursor.getCount() > 0)
-//                        {
-//                            Intent intent = new Intent(Login.this, Home.class);
-//                            intent.putExtra("email", cursor.getString(0).toString());
-//                            intent.putExtra("password", cursor.getString(1).toString());
-//                            startActivity(intent);
-//                        }else{
-//                            Toast.makeText(Login.this, "Email or Password is Wrong!", Toast.LENGTH_SHORT).show();
-//                        }
-//
+
+                Call<UserResponse> call = mApiInterface.getLogin(editMail.getText().toString(),editPass.getText().toString());
+                call.enqueue(new Callback<UserResponse>() {
+                    @Override
+                    public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                        if(response.body().getStatus().equals("success")){
+                            Toast.makeText(getApplicationContext(),"Login Berhasil",Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(getApplicationContext(),Home.class);
+                            startActivity(i);
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Login Error",Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserResponse> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),"Server Error",Toast.LENGTH_LONG).show();
+                    }
+                });
 //                    }
 //                }
 //                
