@@ -89,9 +89,5 @@ public class DetailMovimax extends AppCompatActivity {
             }
         });
 
-
-
-
-
     }
 }
