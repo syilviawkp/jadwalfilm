@@ -35,78 +35,80 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
 
-                if (cekValidasi()) {
-                    if (!isValidEmail(editMail.getText().toString().trim())) {
-                        editMail.setError("Email tidak valid");
-                    } else if (!isValidPassword(editPass.getText().toString().trim())) {
-                        editPass.setError("Password Error");
-                    } else {
-                        sessionManagement.createLoginSession(editMail.getText().toString(), editPass.getText().toString());
-
-                        SQLiteDatabase db = dbHelper.getWritableDatabase();
-                        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE email = '" +
-                                editMail.getText().toString() + "' AND password = '" +
-                                editPass.getText().toString() + "'", null);
-                        cursor.moveToFirst();
-
-                        if (cursor.getCount() > 0)
-                        {
-                            Intent intent = new Intent(Login.this, Home.class);
-                            intent.putExtra("email", cursor.getString(0).toString());
-                            intent.putExtra("password", cursor.getString(1).toString());
-                            startActivity(intent);
-                        }else{
-                            Toast.makeText(Login.this, "Email or Password is Wrong!", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                }
+//                if (cekValidasi()) {
+//                    if (!isValidEmail(editMail.getText().toString().trim())) {
+//                        editMail.setError("Email tidak valid");
+//                    } else if (!isValidPassword(editPass.getText().toString().trim())) {
+//                        editPass.setError("Password Error");
+//                    } else {
+//                        sessionManagement.createLoginSession(editMail.getText().toString(), editPass.getText().toString());
+//
+//                        SQLiteDatabase db = dbHelper.getWritableDatabase();
+//                        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE email = '" +
+//                                editMail.getText().toString() + "' AND password = '" +
+//                                editPass.getText().toString() + "'", null);
+//                        cursor.moveToFirst();
+//
+//                        if (cursor.getCount() > 0)
+//                        {
+//                            Intent intent = new Intent(Login.this, Home.class);
+//                            intent.putExtra("email", cursor.getString(0).toString());
+//                            intent.putExtra("password", cursor.getString(1).toString());
+//                            startActivity(intent);
+//                        }else{
+//                            Toast.makeText(Login.this, "Email or Password is Wrong!", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                    }
+//                }
 //                
             }
         });
-        sessionManagement = new SessionManagement(this);
-
-        if (sessionManagement.isLoggedIn()) {
-            goToActivity();
-        }
+//        sessionManagement = new SessionManagement(this);
+//
+//        if (sessionManagement.isLoggedIn()) {
+//            goToActivity();
+//        }
 
 
 }
-    private boolean cekValidasi(){
-        if (editMail.getText().toString().equals("")){
-            Toast.makeText(getApplicationContext(), "Email tidak boleh kosong", Toast.LENGTH_SHORT).show();
-            return false;
-        }else if(editPass.getText().toString().equals("")){
-            Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
-            return false;
-        }else{
-            return  true;
-        }
-    }
-
-    private void goToActivity(){
-        Intent mIntent = new Intent(getApplicationContext(), Home.class);
-        startActivity(mIntent);
-    }
-
-    // validating email id
-    private boolean isValidEmail(String email) {
-        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-
-
-    // validating password with retype password
-    private boolean isValidPassword(String pass) {
-        if (!TextUtils.isEmpty(pass) && pass.length() > 6) {
-            return true;
-        }
-        return false;
-    }
+//    private boolean cekValidasi(){
+//        if (editMail.getText().toString().equals("")){
+//            Toast.makeText(getApplicationContext(), "Email tidak boleh kosong", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }else if(editPass.getText().toString().equals("")){
+//            Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }else{
+//            return  true;
+//        }
+//    }
+//
+//    private void goToActivity(){
+//        Intent mIntent = new Intent(getApplicationContext(), Home.class);
+//        startActivity(mIntent);
+//    }
+//
+//    // validating email id
+//    private boolean isValidEmail(String email) {
+//        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+//                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+//
+//        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+//        Matcher matcher = pattern.matcher(email);
+//        return matcher.matches();
+//    }
+//
+//
+//    // validating password with retype password
+//    private boolean isValidPassword(String pass) {
+//        if (!TextUtils.isEmpty(pass) && pass.length() > 6) {
+//            return true;
+//        }
+//        return false;
+//    }
 
 }

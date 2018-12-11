@@ -17,21 +17,22 @@
 
         <TextView
             android:id="@+id/txt_jam_tayang"
-            android:layout_width="match_parent"
+            android:layout_width="180dp"
             android:layout_height="32dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="25dp"
-            android:text="Jam tayang"/>
+            android:layout_alignStart="@+id/txt_film"
+            android:layout_marginBottom="40dp"
+            android:text="Jam tayang" />
 
         <TextView
             android:id="@+id/txt_film"
-            android:layout_width="match_parent"
+            android:layout_width="177dp"
             android:layout_height="30dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="80dp"
-            android:text="Nama film"/>
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="82dp"
+            android:layout_marginEnd="18dp"
+            android:text="Nama film" />
 
         <ImageView
             android:id="@+id/imgMovimax"
@@ -40,6 +41,14 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             card_view:srcCompat="@drawable/movlogo" />
+
+        <ImageView
+            android:id="@+id/poster1"
+            android:layout_width="101dp"
+            android:layout_height="110dp"
+            android:layout_alignStart="@+id/imgMovimax"
+            android:layout_alignTop="@+id/txt_film"
+            card_view:srcCompat="@mipmap/ic_launcher_round" />
 
     </RelativeLayout>
 

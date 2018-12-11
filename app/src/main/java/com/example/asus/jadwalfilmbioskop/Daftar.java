@@ -34,10 +34,10 @@ public class Daftar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                db.execSQL("INSERT INTO user(nama, email, password) VALUES ('"+editNama.getText().toString()+"','"+editEmail.getText().toString()+"','"+editPassword.getText().toString()+"')");
-
-                Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_SHORT).show();
+//                SQLiteDatabase db = dbHelper.getWritableDatabase();
+//                db.execSQL("INSERT INTO user(nama, email, password) VALUES ('"+editNama.getText().toString()+"','"+editEmail.getText().toString()+"','"+editPassword.getText().toString()+"')");
+//
+//                Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_SHORT).show();
                 Intent a = new Intent(getApplicationContext(), Login.class);
                 startActivity(a);
             }

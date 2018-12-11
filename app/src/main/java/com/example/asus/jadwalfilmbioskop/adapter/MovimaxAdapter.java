@@ -1,19 +1,27 @@
-package com.example.asus.jadwalfilmbioskop;
+package com.example.asus.jadwalfilmbioskop.adapter;
 
-import android.support.annotation.NonNull;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.asus.jadwalfilmbioskop.R;
+import com.example.asus.jadwalfilmbioskop.model.Film;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class MovimaxAdapter extends RecyclerView.Adapter<MovimaxAdapter.ViewHolder> {
-    private ArrayList<String> rvData;
-    public MovimaxAdapter(ArrayList<String> inputData) {
-        rvData = inputData;
+    private List<Film> rvData;
+    private Context mContext;
+
+    public MovimaxAdapter(List<Film> rvData, Context mContext) {
+        this.rvData = rvData;
+        this.mContext = mContext;
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView namaFilm, jamTayang;
@@ -37,9 +45,11 @@ public class MovimaxAdapter extends RecyclerView.Adapter<MovimaxAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - mengambil elemen dari dataset (ArrayList) pada posisi tertentu
         // - mengeset isi view dengan elemen dari dataset tersebut
-        final String name = rvData.get(position);
-        holder.namaFilm.setText(rvData.get(position));
-        holder.jamTayang.setText(rvData.get(position));
+//        final String name = rvData.get(position);
+//        holder.namaFilm.setText(rvData.get(position));
+//        holder.jamTayang.setText(rvData.get(position));
+        holder.namaFilm.setText(rvData.get(position).getJudul());
+        holder.jamTayang.setText(rvData.get(position).getJam());
 
     }
     @Override

@@ -28,6 +28,22 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent b = new Intent(getApplicationContext(), DetailCinemaXXI.class);
+                startActivity(b);
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent c = new Intent(getApplicationContext(), DetailCinemaxx.class);
+                startActivity(c);
+            }
+        });
+
         imgHome = findViewById(R.id.imgHome);
         imgProfil = findViewById(R.id.imgProfil);
         imgBack = findViewById(R.id.imgProfil);

@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
-    @GET("movie/top_rated")
-    Call<FilmResponse> getTopRatedMovies(@Query("api_key") String apiKey);
+    @GET("film")
+    Call<FilmResponse> getTopRatedMovies();
 
 }
