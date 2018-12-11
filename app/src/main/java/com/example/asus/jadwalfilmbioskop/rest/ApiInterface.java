@@ -33,7 +33,7 @@ public interface ApiInterface {
     //User
     @FormUrlEncoded
     @POST("User")
-    Call<User> postUser (@Field("idUser") String idUser,
+    Call<UserResponse> postUser (
                          @Field("email") String email,
                          @Field("nama") String nama,
                          @Field("password") String password);
